@@ -31,7 +31,7 @@ import {
               width={128}
               height={38}
             />
-            <Separator className="border border-gray-50" />
+            <Separator className="border border-gray-100" />
             <NavItems />
           </SheetContent>
         </Sheet>
