@@ -14,7 +14,7 @@ const Header = () => {
                 <Image
                     src='/assets/images/logo.svg'
                     alt='Bend logo'
-                    width={128}
+                    width={240}
                     height={32}
                 />
             </Link>

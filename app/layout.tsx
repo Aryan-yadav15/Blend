@@ -10,8 +10,8 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Blend',
-  description: 'Blend is an event management platform',
+  title: 'CampusBuzz',
+  description: 'CampusBuzz is an event management platform',
   icons:{
     icon:'/assets/images/logo.svg'
   }

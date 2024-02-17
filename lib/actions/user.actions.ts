@@ -62,17 +62,12 @@ export async function deleteUser(clerkId: string) {
     await Promise.all([
       // Update the 'events' collection to remove references to the user
       Event.updateMany(
-        //this is the filter 
         { _id: { $in: userToDelete.events } },
-        // this is the operation
         { $pull: { organizer: userToDelete._id } }
       ),
 
       // Update the 'orders' collection to remove references to the user
-      Order.updateMany(
-        { _id: { $in: userToDelete.orders } },
-        { $unset: { buyer: 1 } }
-      ),
+      Order.updateMany({ _id: { $in: userToDelete.orders } }, { $unset: { buyer: 1 } }),
     ])
 
     // Delete user
@@ -84,6 +79,3 @@ export async function deleteUser(clerkId: string) {
     handleError(error)
   }
 }
-
-
-// Need to make order 

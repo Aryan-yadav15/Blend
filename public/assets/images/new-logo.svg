@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="480" viewBox="0 0 1440 480">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 66.667px;
+        fill: #7360df;
+        font-family: Aventa-SemiBold, Aventa;
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        fill: #2e2e2e;
+      }
+
+      .cls-3 {
+        fill: #ff9b1b;
+      }
+    </style>
+  </defs>
+  <text id="Campus_Buzz" data-name="Campus Buzz" class="cls-1" transform="translate(23.853 208.259) scale(2.967)">Campus<tspan class="cls-2"> <tspan class="cls-3">Buzz</tspan></tspan></text>
+</svg>

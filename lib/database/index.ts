@@ -12,7 +12,7 @@ export const connectToDatabase = async() =>{
         throw new Error("No mongo uri available")
 
     cached.promise=cached.promise || mongoose.connect(MONGODB_URI,{
-        dbName: 'Blend event',
+        dbName: 'CampusBuzz',
         bufferCommands:false
     })
 
