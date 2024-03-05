@@ -1,20 +1,26 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
+import { cache } from 'react'
 
-const MONGODB_URI = process.env.MONGODB_URI;
+let cached = (global as any).mongoose || {conn:null,promise: null}
+// this global refers to global type of mongoose
+const MONGODB_URI = process.env.MONGODB_URI
 
-let cached = (global as any).mongoose || { conn: null, promise: null };
+export const connectToDatabase = async() =>{
+    if(cached.conn)
+        return cached.conn
+    if(!MONGODB_URI) 
+        throw new Error("No mongo uri available")
 
-export const connectToDatabase = async () => {
-  if (cached.conn) return cached.conn;
+    cached.promise=cached.promise || mongoose.connect(MONGODB_URI,{
+        dbName: 'BLEND EVENT',
+        bufferCommands:false
+    })
 
-  if(!MONGODB_URI) throw new Error('MONGODB_URI is missing');
+    cached.conn=await cached.promise
 
-  cached.promise = cached.promise || mongoose.connect(MONGODB_URI, {
-    dbName: 'CampusBuzz',
-    bufferCommands: false,
-  })
-
-  cached.conn = await cached.promise;
-
-  return cached.conn;
+    return cached.conn
 }
+
+// this is done to make the connection merw efficent as futher sever action will need to c
+// connect to the database multiple times which will give stress to the database so now we are
+// making the connection only once and using it multiple times by using cache as global`
